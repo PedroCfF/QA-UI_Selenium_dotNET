@@ -31,11 +31,16 @@ namespace QA_UI_Selenium_dotNET.Behaviour.Pages
             _driver.Navigate().GoToUrl(_url);
         }
 
-        public Boolean VerifyLogin(User user, Boolean yes)
+        public void Login(User user)
         {
             EmailInput.SendKeys(user.userName);
             PasswordInput.SendKeys(user.password);
             SubmitButton.Click();
+        }
+
+        public Boolean VerifyLogin(User user, Boolean yes)
+        {
+            Login(user);
 
             if (yes)
             {

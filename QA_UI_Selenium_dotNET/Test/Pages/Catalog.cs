@@ -17,11 +17,11 @@ namespace QA_UI_Selenium_dotNET.Test.Pages
         [SetUp]
         public void TestSetup()
         {
+            TestContext.WriteLine("Starting the test...");
             _behaviourManager.LoginPage.Navigate();
         }
 
-        [Test]
-        public void MainElementsAreDisplayed()
+        private void Login(User? user)
         {
             if (StandardUser != null)
             {
@@ -29,10 +29,18 @@ namespace QA_UI_Selenium_dotNET.Test.Pages
             }
             else
             {
-                Assert.Fail("User not found");
+                TestContext.WriteLine("User not found");
             }
+        }
+
+        [Test]
+        public void MainElementsAreDisplayed()
+        {
+            Login(StandardUser);
 
             Assert.True(_behaviourManager.CatalogPage.VerifyNavbar());
+            Assert.True(_behaviourManager.CatalogPage.verifyHeaderIsCorrect());
+            Assert.True(_behaviourManager.CatalogPage.verifyInventoryIsCorrect());
         }
     }
 }
