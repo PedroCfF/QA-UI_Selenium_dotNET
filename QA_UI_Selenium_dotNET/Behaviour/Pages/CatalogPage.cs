@@ -37,6 +37,9 @@ namespace QA_UI_Selenium_dotNET.Behaviour.Pages
         By InventoryItemLocator = By.ClassName("inventory_item");
         private IReadOnlyList<IWebElement> InventoryItems => _driver.FindElements(InventoryItemLocator);
 
+        By FooterLocator = By.ClassName("footer");
+        private IWebElement Footer => _driver.FindElement(FooterLocator);
+
 
         public CatalogPage(IWebDriver driver)
         {
@@ -116,7 +119,17 @@ namespace QA_UI_Selenium_dotNET.Behaviour.Pages
 
         public Boolean verifyFooterIsCorrect()
         {
-            return true;
+            try
+            {
+                TestingUtils.WaitForElement(_driver, InventoryContainerLocator);
+
+                return (TestingUtils.IsElementVisible(Footer));
+            }
+            catch (NoSuchElementException e)
+            {
+                TestContext.WriteLine("Some elements are not present in Footer || " + e);
+                return false;
+            }
         }
     }
 }

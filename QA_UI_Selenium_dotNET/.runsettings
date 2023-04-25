@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RunSettings>
+	<NUnit>
+		<TestOutputXml>C:\testing\QA_UI_Selenium_dotNET\QA_UI_Selenium_dotNET\TestResults\</TestOutputXml>
+		<OutputXmlFolderMode>RelativeToResultDirectory</OutputXmlFolderMode>
+	</NUnit>
+</RunSettings>

@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pedro\\Desktop\\apps\\qa\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET.csproj": {}
+    "C:\\testing\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pedro\\Desktop\\apps\\qa\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET.csproj": {
+    "C:\\testing\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pedro\\Desktop\\apps\\qa\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET.csproj",
+        "projectUniqueName": "C:\\testing\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET.csproj",
         "projectName": "QA_UI_Selenium_dotNET",
-        "projectPath": "C:\\Users\\Pedro\\Desktop\\apps\\qa\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET.csproj",
-        "packagesPath": "C:\\Users\\Pedro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pedro\\Desktop\\apps\\qa\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET\\obj\\",
+        "projectPath": "C:\\testing\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET.csproj",
+        "packagesPath": "C:\\Users\\Pedro.Cienfuegos\\.nuget\\packages\\",
+        "outputPath": "C:\\testing\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Pedro.Cienfuegos\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -49,6 +44,10 @@
               "target": "Package",
               "version": "[3.11.0, )"
             },
+            "ExtentReports": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.1.0, )"
@@ -64,6 +63,10 @@
             "NUnit3TestAdapter": {
               "target": "Package",
               "version": "[4.2.1, )"
+            },
+            "ReportGenerator": {
+              "target": "Package",
+              "version": "[5.1.19, )"
             },
             "Selenium.WebDriver": {
               "target": "Package",
@@ -94,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

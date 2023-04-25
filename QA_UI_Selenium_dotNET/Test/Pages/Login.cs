@@ -23,7 +23,7 @@ namespace QA_UI_Selenium_dotNET.Test.Pages
             _behaviourManager.LoginPage.Navigate();
         }
 
-        //[Test]
+        [Test]
         public void StandardUserCanLoginSuccessfully()
         {
             if (StandardUser != null)
@@ -36,7 +36,7 @@ namespace QA_UI_Selenium_dotNET.Test.Pages
             }
         }
 
-        //[Test]
+        [Test]
         public void LockedOutUserCannotLoginSuccessfully()
         {
             if (LockedOutUser != null)
@@ -62,7 +62,7 @@ namespace QA_UI_Selenium_dotNET.Test.Pages
             }
         }
 
-        //[Test]
+        [Test]
         public void PerformanceGlitchUserCanLoginSuccessfully()
         {
             if (PerformanceGlitchUser != null)

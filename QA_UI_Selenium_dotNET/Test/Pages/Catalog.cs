@@ -17,7 +17,6 @@ namespace QA_UI_Selenium_dotNET.Test.Pages
         [SetUp]
         public void TestSetup()
         {
-            TestContext.WriteLine("Starting the test...");
             _behaviourManager.LoginPage.Navigate();
         }
 
@@ -41,6 +40,7 @@ namespace QA_UI_Selenium_dotNET.Test.Pages
             Assert.True(_behaviourManager.CatalogPage.VerifyNavbar());
             Assert.True(_behaviourManager.CatalogPage.verifyHeaderIsCorrect());
             Assert.True(_behaviourManager.CatalogPage.verifyInventoryIsCorrect());
+            Assert.True(_behaviourManager.CatalogPage.verifyFooterIsCorrect());
         }
     }
 }
