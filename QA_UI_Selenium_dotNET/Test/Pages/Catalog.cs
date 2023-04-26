@@ -1,5 +1,5 @@
 ﻿using QA_UI_Selenium_dotNET.Behaviour;
-using QA_UI_Selenium_dotNET.Behaviour.Pages;
+using QA_UI_Selenium_dotNET.Behaviour.Pages.Catalog;
 using QA_UI_Selenium_dotNET.Models;
 using QA_UI_Selenium_dotNET.Test.Data;
 using System;

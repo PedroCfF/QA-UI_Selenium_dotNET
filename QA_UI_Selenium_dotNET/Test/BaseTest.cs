@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using AventStack.ExtentReports;
+using OpenQA.Selenium;
 using QA_Selenium_1.Test;
 using QA_UI_Selenium_dotNET.Behaviour;
 using System;
@@ -12,6 +13,7 @@ namespace QA_UI_Selenium_dotNET.Test
     public class BaseTest
     {
         protected IWebDriver Driver;
+        private ExtentTest TestReport;
         public BehaviourManager _behaviourManager;
 
         [OneTimeSetUp]
@@ -24,7 +26,8 @@ namespace QA_UI_Selenium_dotNET.Test
         public void Setup()
         {
             Driver = WebDriverManager.CreateWebDriver();
-            _behaviourManager = new BehaviourManager(Driver);
+            TestReport = ReportsManager.CreateTestReport();
+            _behaviourManager = new BehaviourManager(Driver,TestReport);
 
             ReportsManager.CreateTestReport();
         }

@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using AventStack.ExtentReports;
+using OpenQA.Selenium;
+using QA_Selenium_1.Test;
 using QA_UI_Selenium_dotNET.Behaviour.Utils;
 using System;
 using System.Collections.Generic;
@@ -6,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QA_UI_Selenium_dotNET.Behaviour.Pages
+namespace QA_UI_Selenium_dotNET.Behaviour.Pages.Catalog
 {
 
     //TODO: Add checks (tryCatch) and logs
@@ -15,6 +17,7 @@ namespace QA_UI_Selenium_dotNET.Behaviour.Pages
     {
         private readonly IWebDriver _driver;
         private readonly string _url = "https://www.saucedemo.com";
+        private ExtentTest _testReport;
 
         By IconMenuLocator = By.Id("react-burger-menu-btn");
         private IWebElement IconMenu => _driver.FindElement(IconMenuLocator);
@@ -40,10 +43,19 @@ namespace QA_UI_Selenium_dotNET.Behaviour.Pages
         By FooterLocator = By.ClassName("footer");
         private IWebElement Footer => _driver.FindElement(FooterLocator);
 
-
-        public CatalogPage(IWebDriver driver)
+        private bool pageIsLoaded()
         {
-            _driver = driver;
+            try
+            {
+                TestingUtils.WaitForElement(_driver, InventoryContainerLocator);
+                _testReport.Log(Status.Pass, "Catalog Page was properly loaded");
+                return true;
+            }
+            catch (NoSuchElementException e)
+            {
+                _testReport.Log(Status.Fail, "Catalog Page was not properly loaded || " + e);
+                return false;
+            }
         }
 
         private bool HasListOfItems(IReadOnlyList<IWebElement> list)
@@ -61,7 +73,13 @@ namespace QA_UI_Selenium_dotNET.Behaviour.Pages
             IWebElement itemImage = item.FindElement(By.XPath(".//descendant::img[@class='inventory_item_img']"));
             IWebElement itemDescription = item.FindElement(By.XPath(".//div[@class='inventory_item_description']"));
 
-            return (TestingUtils.IsElementVisible(itemImage) && TestingUtils.IsElementVisible(itemDescription));
+            return TestingUtils.IsElementVisible(itemImage) && TestingUtils.IsElementVisible(itemDescription);
+        }
+
+        public CatalogPage(IWebDriver driver, ExtentTest testReport)
+        {
+            _driver = driver;
+            _testReport = testReport;
         }
 
         public void Navigate()
@@ -69,67 +87,63 @@ namespace QA_UI_Selenium_dotNET.Behaviour.Pages
             _driver.Navigate().GoToUrl(_url);
         }
 
-        public Boolean VerifyNavbar()
+        public bool VerifyNavbar()
         {
-            try
-            {
-                TestingUtils.WaitForElement(_driver, InventoryContainerLocator);
+            if (!pageIsLoaded()) return false;
 
-                return (TestingUtils.IsElementVisible(IconMenu) &&
-                TestingUtils.IsElementVisible(AppLogo) &&
-                TestingUtils.IsElementVisible(IconCart));
-            }
-            catch (NoSuchElementException e)
+            if (TestingUtils.IsElementVisible(IconMenu) && TestingUtils.IsElementVisible(AppLogo) && TestingUtils.IsElementVisible(IconCart))
             {
-                TestContext.WriteLine("Some elements are not present in Navbar || " + e);
-                return false;
-            }            
+                _testReport.Pass("Navbar elements are correct");
+                return true;
+            }
+
+            _testReport.Fail("Some elements lacking in Navbar");
+            return false;
         }
 
-        public Boolean verifyHeaderIsCorrect()
+        public bool verifyHeaderIsCorrect()
         {
-            try
-            {
-                TestingUtils.WaitForElement(_driver, InventoryContainerLocator);
+            if (!pageIsLoaded()) return false;
 
-                return (TestingUtils.IsElementVisible(HeaderTitle) &&
-                TestingUtils.IsElementVisible(CatalogFilter));
-            }
-            catch (NoSuchElementException e)
+            if (TestingUtils.IsElementVisible(HeaderTitle) && TestingUtils.IsElementVisible(CatalogFilter))
             {
-                TestContext.WriteLine("Some elements are not present in Header || " + e);
-                return false;
+                _testReport.Pass("Header elements are correct");
+                return true;
             }
+
+            _testReport.Fail("Some elements lacking in Header");
+            return false;
+
         }
 
-        public Boolean verifyInventoryIsCorrect()
-        {
-            try
-            {
-                TestingUtils.WaitForElement(_driver, InventoryContainerLocator);
+        //TODO: verify that list lenght is more than 1 and less than 20
 
-                return (HasListOfItems(InventoryItems));
-            }
-            catch (NoSuchElementException e)
+        public bool verifyInventoryIsCorrect()
+        {
+            if (!pageIsLoaded()) return false;
+
+            if (HasListOfItems(InventoryItems))
             {
-                TestContext.WriteLine("Some elements are not present in Inventory || " + e);
-                return false;
+                _testReport.Pass("Inventory elements are correct");
+                return true;
             }
+
+            _testReport.Fail("Some elements lacking in Inventory");
+            return false;
         }
 
-        public Boolean verifyFooterIsCorrect()
+        public bool verifyFooterIsCorrect()
         {
-            try
-            {
-                TestingUtils.WaitForElement(_driver, InventoryContainerLocator);
+            if (!pageIsLoaded()) return false;
 
-                return (TestingUtils.IsElementVisible(Footer));
-            }
-            catch (NoSuchElementException e)
+            if (TestingUtils.IsElementVisible(Footer))
             {
-                TestContext.WriteLine("Some elements are not present in Footer || " + e);
-                return false;
+                _testReport.Pass("Footer elements are correct");
+                return true;
             }
+
+            _testReport.Fail("Some elements lacking in Footer");
+            return false;
         }
     }
 }

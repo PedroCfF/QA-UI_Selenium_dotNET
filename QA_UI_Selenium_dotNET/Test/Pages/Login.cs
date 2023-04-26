@@ -1,5 +1,5 @@
 ﻿using QA_UI_Selenium_dotNET.Behaviour;
-using QA_UI_Selenium_dotNET.Behaviour.Pages;
+using QA_UI_Selenium_dotNET.Behaviour.Pages.Login;
 using QA_UI_Selenium_dotNET.Models;
 using QA_UI_Selenium_dotNET.Test.Data;
 using System;
@@ -41,7 +41,7 @@ namespace QA_UI_Selenium_dotNET.Test.Pages
         {
             if (LockedOutUser != null)
             {
-                Assert.False(_behaviourManager.LoginPage.VerifyLogin(LockedOutUser, false));
+                Assert.True(_behaviourManager.LoginPage.VerifyLogin(LockedOutUser, false));
             }
             else
             {
@@ -49,7 +49,7 @@ namespace QA_UI_Selenium_dotNET.Test.Pages
             }
         }
 
-        //[Test]
+        [Test]
         public void ProblemUserCanLoginSuccessfully()
         {
             if (ProblemUser != null)

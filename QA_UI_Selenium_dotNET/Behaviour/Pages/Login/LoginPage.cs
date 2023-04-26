@@ -10,11 +10,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QA_UI_Selenium_dotNET.Behaviour.Pages
+namespace QA_UI_Selenium_dotNET.Behaviour.Pages.Login
 {
     public class LoginPage
     {
         private readonly IWebDriver _driver;
+        private readonly ExtentTest _testReport;
         private readonly string _url = "https://www.saucedemo.com/";
 
         private IWebElement EmailInput => _driver.FindElement(By.Id("user-name"));
@@ -23,9 +24,12 @@ namespace QA_UI_Selenium_dotNET.Behaviour.Pages
         private IWebElement LoginErrorMessage => _driver.FindElement(By.CssSelector("[data-test='error']"));
         private IWebElement Inventory => _driver.FindElement(By.Id("inventory_container"));
 
-        public LoginPage(IWebDriver driver)
+
+
+        public LoginPage(IWebDriver driver, ExtentTest testReport)
         {
             _driver = driver;
+            _testReport = testReport;
         }
 
         public void Navigate()
@@ -40,7 +44,7 @@ namespace QA_UI_Selenium_dotNET.Behaviour.Pages
             SubmitButton.Click();
         }
 
-        public Boolean VerifyLogin(User user, Boolean yes)
+        public bool VerifyLogin(User user, bool yes)
         {
             Login(user);
 
@@ -48,18 +52,21 @@ namespace QA_UI_Selenium_dotNET.Behaviour.Pages
             {
                 if (TestingUtils.IsElementVisible(Inventory))
                 {
-                    ReportsManager.Test.Pass("Test passed");
+                    _testReport.Pass("Test passed");
                     return true;
                 }
+
+                _testReport.Fail("Test failed. Inventory element is not visible");
                 return false;
             }
             else
             {
-                if (!TestingUtils.IsElementVisible(LoginErrorMessage))
+                if (TestingUtils.IsElementVisible(LoginErrorMessage))
                 {
-                    ReportsManager.Test.Pass("Test passed");
+                    _testReport.Pass("Test passed");
                     return true;
                 }
+                _testReport.Fail("Test failed. Inventory element is visible");
                 return false;
             }
         }

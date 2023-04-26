@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace QA_Selenium_1.Test
 {
+    //TODO:Add child tests
+
     internal class ReportsManager
     {
         public static ExtentReports? ReportInstance { get; private set; }
@@ -31,13 +33,9 @@ namespace QA_Selenium_1.Test
             }
         }
 
-        public static void CreateTestReport()
+        public static ExtentTest CreateTestReport()
         {
-            if (ReportInstance != null)
-            {
-                Test = ReportInstance.CreateTest(TestContext.CurrentContext.Test.Name);
-            }
-            
+            return Test = ReportInstance.CreateTest(TestContext.CurrentContext.Test.Name);
         }
 
         public static void AddResultsToReport()
