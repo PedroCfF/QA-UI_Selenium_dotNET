@@ -117,7 +117,6 @@ namespace QA_UI_Selenium_dotNET.Behaviour.Pages
             try
             {
                 TestingUtils.WaitForElement(_driver, InventoryContainerLocator);
-                _testReport.Log(Status.Pass, "Catalog Page was properly loaded");
             }
             catch (NoSuchElementException e)
             {
@@ -140,11 +139,7 @@ namespace QA_UI_Selenium_dotNET.Behaviour.Pages
                 try
                 {
                     IWebElement element = _driver.FindElement(locator);
-                    if (TestingUtils.IsElementVisible(element))
-                    {
-                        _testReport.Log(Status.Pass, $"{elementName} is visible");
-                    }
-                    else
+                    if (!TestingUtils.IsElementVisible(element))
                     {
                         _testReport.Log(Status.Fail, $"{elementName} is not visible");
                         allElementsVisible = false;
