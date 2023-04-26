@@ -1,7 +1,6 @@
 ﻿using AventStack.ExtentReports;
 using OpenQA.Selenium;
-using QA_UI_Selenium_dotNET.Behaviour.Pages.Catalog;
-using QA_UI_Selenium_dotNET.Behaviour.Pages.Login;
+using QA_UI_Selenium_dotNET.Behaviour.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,6 +1,6 @@
 ﻿using AventStack.ExtentReports;
 using OpenQA.Selenium;
-using QA_Selenium_1.Test;
+using QA_UI_Selenium_dotNET.Test;
 using QA_UI_Selenium_dotNET.Behaviour;
 using System;
 using System.Collections.Generic;
@@ -28,8 +28,6 @@ namespace QA_UI_Selenium_dotNET.Test
             Driver = WebDriverManager.CreateWebDriver();
             TestReport = ReportsManager.CreateTestReport();
             _behaviourManager = new BehaviourManager(Driver,TestReport);
-
-            ReportsManager.CreateTestReport();
         }
 
         [TearDown]
@@ -44,7 +42,5 @@ namespace QA_UI_Selenium_dotNET.Test
         {
             ReportsManager.TearDownReport();
         }
-
-        
     }
 }

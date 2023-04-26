@@ -6,9 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QA_Selenium_1.Test
+namespace QA_UI_Selenium_dotNET.Test
 {
-    //TODO:Add child tests
 
     internal class ReportsManager
     {
