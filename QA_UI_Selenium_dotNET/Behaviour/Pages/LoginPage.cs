@@ -1,5 +1,7 @@
-﻿using OpenQA.Selenium;
+﻿using AventStack.ExtentReports;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using QA_Selenium_1.Test;
 using QA_UI_Selenium_dotNET.Behaviour.Utils;
 using QA_UI_Selenium_dotNET.Models;
 using System;
@@ -46,6 +48,7 @@ namespace QA_UI_Selenium_dotNET.Behaviour.Pages
             {
                 if (TestingUtils.IsElementVisible(Inventory))
                 {
+                    ReportsManager.Test.Pass("Test passed");
                     return true;
                 }
                 return false;
@@ -54,6 +57,7 @@ namespace QA_UI_Selenium_dotNET.Behaviour.Pages
             {
                 if (!TestingUtils.IsElementVisible(LoginErrorMessage))
                 {
+                    ReportsManager.Test.Pass("Test passed");
                     return true;
                 }
                 return false;
