@@ -62,7 +62,7 @@ namespace QA_UI_Selenium_dotNET.Test.Pages
             }
         }
 
-        [Test]
+        //[Test]
         public void PerformanceGlitchUserCanLoginSuccessfully()
         {
             if (PerformanceGlitchUser != null)

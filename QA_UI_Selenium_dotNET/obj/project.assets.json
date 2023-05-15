@@ -10424,19 +10424,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Pedro.Cienfuegos\\.nuget\\packages\\": {}
+    "C:\\Users\\Pedro\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\testing\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET.csproj",
+      "projectUniqueName": "C:\\sandbox\\QA-UI_Selenium_dotNET\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET.csproj",
       "projectName": "QA_UI_Selenium_dotNET",
-      "projectPath": "C:\\testing\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET.csproj",
-      "packagesPath": "C:\\Users\\Pedro.Cienfuegos\\.nuget\\packages\\",
-      "outputPath": "C:\\testing\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET\\obj\\",
+      "projectPath": "C:\\sandbox\\QA-UI_Selenium_dotNET\\QA_UI_Selenium_dotNET\\QA_UI_Selenium_dotNET.csproj",
+      "packagesPath": "C:\\Users\\Pedro\\.nuget\\packages\\",
+      "outputPath": "C:\\sandbox\\QA-UI_Selenium_dotNET\\QA_UI_Selenium_dotNET\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Pedro.Cienfuegos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10444,6 +10449,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -10519,7 +10525,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
